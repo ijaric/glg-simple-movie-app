@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { MediaType, Movie } from "../../src/definitions/Movie";
 
-const { MOVIE_API } = process.env;
+const MOVIE_API = process.env.MOVIE_API_V4;
 
 const MOVIE_DB_API = "https://api.themoviedb.org/3/";
 

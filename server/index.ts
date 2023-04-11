@@ -5,14 +5,15 @@ import cors from "cors";
 import { MediaRouter } from "./controllers/media/MediaRouter";
 
 const app = express();
-const port = process.env.API_PORT;
+const apiPort = process.env.API_PORT;
+const clientPort = process.env.PORT;
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: `http://localhost:${clientPort}` }));
 
 app.use(express.static(path.join(__dirname, "../build")));
 
-const httpInstance = app.listen(port, function () {
-  console.log("server running on port:", port);
+const httpInstance = app.listen(apiPort, function () {
+  console.log("server running on port:", apiPort);
 });
 
 app.use("/api/media", new MediaRouter().getRouter());
